@@ -10,6 +10,9 @@ install:
 env:
   - ANDROID_HOME=$HOME/android-sdk TERM=dumb JAVA_OPTS="-Xmx2048m"
   before_script:
+    - mkdir -p "$ANDROID_HOME/licenses"
+    - cp ./google-licenses/* "$ANDROID_HOME/licenses/"  
+  before_script:
   - echo sdk.dir $ANDROID_HOME > local.properties
 script:
   - ./gradlew --no-daemon build
