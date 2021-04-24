@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.darkphoenix.sannadhasena.fragment.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_loginInfoFragment"
+            app:destination="@id/loginInfoFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.darkphoenix.sannadhasena.fragment.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" />
+    <fragment
+        android:id="@+id/loginNumFragment"
+        android:name="com.darkphoenix.sannadhasena.fragment.LoginNumFragment"
+        android:label="fragment_login_num"
+        tools:layout="@layout/fragment_login_num" >
+        <action
+            android:id="@+id/action_loginNumFragment_to_loginOtpFragment"
+            app:destination="@id/loginOtpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginOtpFragment"
+        android:name="com.darkphoenix.sannadhasena.fragment.LoginOtpFragment"
+        android:label="fragment_login_otp"
+        tools:layout="@layout/fragment_login_otp" >
+        <action
+            android:id="@+id/action_loginOtpFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.darkphoenix.sannadhasena.fragment.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.darkphoenix.sannadhasena.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/loginInfoFragment"
+        android:name="com.darkphoenix.sannadhasena.fragment.LoginInfoFragment"
+        android:label="fragment_login_info"
+        tools:layout="@layout/fragment_login_info" >
+        <action
+            android:id="@+id/action_loginInfoFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginInfoFragment_to_loginNumFragment"
+            app:destination="@id/loginNumFragment" />
+    </fragment>
+</navigation>

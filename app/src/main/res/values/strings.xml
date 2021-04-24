@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SannadhaSena</string>
+    <string name="url">https://sannadhasena.kerala.gov.in</string>
+    <string name="enter_your_phone_number">Enter Your Phone Number</string>
+    <string name="login">Login</string>
+    <string name="signup">SignUp</string>
+    <string name="login_info_hint">We are grateful for your decision to participate in this mission</string>
+    <string name="we_will_sent_you_a_one_time_password_otp">We will sent you a one time password</string>
+    <string name="otp">OTP</string>
+    <string name="enter_verification_code">Enter Verification Code</string>
+    <string name="sms">SMS</string>
+</resources>
