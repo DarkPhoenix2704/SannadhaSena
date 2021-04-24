@@ -1,15 +1,27 @@
-language: java
-jdk: openjdk8
-install:
-  - mkdir $HOME/android-cmdline-tools
-  - curl https://dl.google.com/android/repository/commandlinetools-linux-6609375_latest.zip > $HOME/android-cmdline-tools/cmdline-tools.zip
-  - unzip -qq -n $HOME/android-cmdline-tools/cmdline-tools.zip -d $HOME/android-cmdline-tools
-  - echo y | $HOME/android-cmdline-tools/tools/bin/sdkmanager --sdk_root=$HOME/android-sdk 'platform-tools'
-  - echo y | $HOME/android-cmdline-tools/tools/bin/sdkmanager --sdk_root=$HOME/android-sdk 'build-tools;29.0.3'
-  - echo y | $HOME/android-cmdline-tools/tools/bin/sdkmanager --sdk_root=$HOME/android-sdk 'platforms;android-30'
+language: android
+jdk: oraclejdk8
+
 env:
-  - ANDROID_HOME=$HOME/android-sdk TERM=dumb JAVA_OPTS="-Xmx2048m"
+ global:
+    - ANDROID_API_LEVEL=25
+    - ANDROID_BUILD_TOOLS_VERSION=31.0.0-rc3
+    
+android:
+ components:
+    - tools
+    - platform-tools
+    - build-tools-$ANDROID_BUILD_TOOLS_VERSION
+    - android-$ANDROID_API_LEVEL
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - addon-google_apis-google-$ANDROID_API_LEVEL
+licenses:
+    - 'android-sdk-preview-license-.+'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
 before_script:
-  - echo sdk.dir $ANDROID_HOME > local.properties
+    - mkdir -p "$ANDROID_HOME/licenses"
+    - cp ./google-licenses/* "$ANDROID_HOME/licenses/"    
 script:
-  - ./gradlew --no-daemon build
+    - ./gradlew build check    
